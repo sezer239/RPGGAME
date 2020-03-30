@@ -46,13 +46,13 @@ public class PlayerUnitController : UnitController
             }
 
             if(Input.GetKeyDown(KeyCode.R)){
-                controlledUnit.CustomAttack(0);
+                controlledUnit.Attack( new Attack(Attack.Type.PROJECTILE, Attack.DamageType.MAGIC | Attack.DamageType.PIERCE,0,15,100,0.1f,0,false) );
             }
             if(Input.GetKeyDown(KeyCode.F)){
-                controlledUnit.CustomAttack(1);
+
             }
             if(Input.GetKeyDown(KeyCode.V)){
-                controlledUnit.CustomAttack(2);
+
             }
         }
     }

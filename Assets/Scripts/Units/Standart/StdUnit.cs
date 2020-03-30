@@ -7,18 +7,19 @@ using static UnitController;
 public abstract class StdUnit : Unit
 {
 
-    private NavMeshAgent _agent;
+    protected NavMeshAgent agent;
 
     public virtual void OnEnable()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        if(_agent == null)
+        agent = GetComponent<NavMeshAgent>();
+        if(agent == null)
             Debug.LogWarning("Unit " + GetHashCode() + " has no NavMeshAgent all MoveTo commands will be ignored");
     }
 
     public override void MoveTo(Vector3 pos)
     {
-        if(_agent == null) return;
+        if(agent == null || !agent.isOnNavMesh) return;
+        agent.SetDestination(pos);
     }
 
     public override void Move(Vector3 dir)

@@ -104,7 +104,7 @@ public abstract class Unit : MonoBehaviour
 
     public abstract void DoAttack();
 
-    public abstract void CustomAttack(int attack);
+    public abstract void Attack(Attack attack);
 
     public abstract UnitType GetUnitType();
     public abstract void OnControllerChanged(UnitController unitController);

@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnitController;
+using static Attack;
 
 public class StdUnitMage : StdUnit
 {
-    
-    public GameObject magicBall;
-    public GameObject rock;
+    public Transform magicSpawnPoint;
 
-    private int _attackType;
+    private Attack _doAttackType;
 
     public override void Update()
     {   
         base.Update();
-        animator.SetFloat("MoveAnimSpeed" , rb.velocity.magnitude);
+        if(unitController.GetUnitControllerType() == UnitControllerType.PLAYER_CONTROLLER){
+            animator.SetFloat("MoveAnimSpeed" , rb.velocity.magnitude);
+        }else{
+            animator.SetFloat("MoveAnimSpeed" , agent.velocity.magnitude);
+        }
+
         animator.SetBool("Falling" , !isGrounded);
     }
     
@@ -47,10 +51,9 @@ public class StdUnitMage : StdUnit
         animator.SetTrigger("Attack");
     }
 
-    
-    public override void CustomAttack(int attack)
+    public override void Attack(Attack attack)
     {
-        _attackType = attack;
+        _doAttackType = attack;
         DoAttack();
     }
 
@@ -64,26 +67,9 @@ public class StdUnitMage : StdUnit
     }
 
     public void Hit(){
-        if(_attackType == 0){
-            var rb = Instantiate(magicBall, Vector3.zero , Quaternion.identity).GetComponent<Rigidbody>();
-            rb.transform.position = transform.position + transform.forward + Vector3.up;
-            rb.AddForce(transform.forward * 50, ForceMode.Impulse);        
-            Destroy(rb.gameObject, 3);
+        if(_doAttackType.attackType == Type.PROJECTILE){
+            AttackSpawner.Instance.SpawnProjectile(magicSpawnPoint.position, transform.forward, _doAttackType);
         }
-        else if(_attackType == 1){
-            var rb = Instantiate(rock, Vector3.zero , Quaternion.identity).GetComponent<Rigidbody>();
-            rb.transform.position = transform.position + transform.forward * 3 + Vector3.up * 0.1f;
-            rb.AddForce(Vector3.up * 10, ForceMode.Impulse);        
-        }else if(_attackType == 2){
-
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5,transform.forward,5); 
-            foreach(RaycastHit h in hits){
-                if(h.rigidbody != null && h.rigidbody != rb){
-                    h.rigidbody.AddForce(transform.forward * 30 , ForceMode.Impulse);
-                }
-            }
-        }
-        
     }
 
 }

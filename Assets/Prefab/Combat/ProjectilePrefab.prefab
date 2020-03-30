@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 840159399017704625}
   - component: {fileID: 840159399017704626}
   - component: {fileID: 840159399017704627}
+  - component: {fileID: -478011719649155558}
   m_Layer: 0
-  m_Name: MagicBall
+  m_Name: ProjectilePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4845,3 +4846,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-478011719649155558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840159399017704628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7db062c706af248b14c9b6756a1cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

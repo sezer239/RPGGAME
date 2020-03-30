@@ -86,7 +86,15 @@
      <Compile Include="Assets\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
      <Compile Include="Assets\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Math3d.cs" />
      <Compile Include="Assets\Scripts\GameCameraController.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\Combat\Attack.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\Combat\AttackSpawner.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\Combat\CombatGameObject\AreaAttack.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\Combat\CombatGameObject\BeamAttack.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\Combat\CombatGameObject\MeleeAttack.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\Combat\CombatGameObject\ProjectileAttack.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\Combat\CombatGameObject\SpawnAttack.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\Game\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameMechanics\UnitControllers\AIController.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\UnitControllers\PlayerUnitController.cs" />
      <Compile Include="Assets\Scripts\GameMechanics\UnitControllers\UnitController.cs" />
      <Compile Include="Assets\Scripts\TestMover.cs" />
